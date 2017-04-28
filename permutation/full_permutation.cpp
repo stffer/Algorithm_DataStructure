@@ -9,29 +9,29 @@ int b[13];
 bool vis[13];
 void dfs(int pos,int len)
 {
-	if(len == n)
-	{
-		for(int i=0;i<len;i++){
-			printf("%d ",b[i]);
-		}
-		printf("\n");
-		return;
-	}
-	for(int i=0;i<len_sum;i++)
-	{
-		if(!vis[i]){
-			vis[i]=1;
-			b[++pos] = a[i];
-			dfs(pos,len+1);
-			--pos;
-			vis[i]=0;
-		}
-	}
-	return;
+    if(len == n)
+    {
+        for(int i=0;i<len;i++){
+            printf("%d ",b[i]);
+        }
+        printf("\n");
+        return;
+    }
+    for(int i=0;i<len_sum;i++)
+    {
+        if(!vis[i]){
+            vis[i]=1;
+            b[++pos] = a[i];
+            dfs(pos,len+1);
+            --pos;
+            vis[i]=0;
+        }
+    }
+    return;
 }
 int main()
 {
-	//输入对数列中多少数进行组合
-	std::cin>>n;
-	dfs(-1,0);
+    //输入对数列中多少数进行组合
+    std::cin>>n;
+    dfs(-1,0);
 }
