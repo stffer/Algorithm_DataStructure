@@ -21,8 +21,7 @@ using namespace std;
  * 最少几步?
 */
 int dirc[10][20]= {{1,3,-1},{0,2,4,-1},{1,5,-1},{0,4,6,-1},
-    {1,3,5,7,-1},{2,4,8,-1},{3,7,-1},{4,6,8,-1},{5,7,-1}
-};
+				    {1,3,5,7,-1},{2,4,8,-1},{3,7,-1},{4,6,8,-1},{5,7,-1}};
 string uuu,res = "123456780";
 map<string,int> mp;
 struct node
@@ -54,6 +53,8 @@ int H(string uuu){
 }
 int bfs(int pos,string x)
 {
+	if(mp[x])
+		return 0;
     priority_queue<node> Q;
     Q.push(node(0,pos,0+H(x),x));
     while(!Q.empty())
@@ -93,11 +94,6 @@ int main()
                 pos=i;
         }
 		mp[str] = 1;		
-        if(mp[res])
-        {
-            printf("0\n");
-            continue;
-        }
         int ans=bfs(pos,str);
         if(ans==-1)
         {
